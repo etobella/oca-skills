@@ -76,7 +76,7 @@ A module uses these directories and files:
 | `readme/` | the fragments the `README.rst` is built from |
 | `reports/` | reporting models, print report templates |
 | `security/` | groups, access rows, record rules |
-| `static/` | web assets, in `src/js`, `src/css`, `src/xml`, `img/`, `lib/` |
+| `static/` | web assets: `src/` (its layout is in the `oca-web` skill), `img/`, `lib/` |
 | `templates/` | web templates, when there are several |
 | `tests/` | tests |
 | `views/` | views, and QWeb print report templates |
@@ -95,15 +95,19 @@ A module uses these directories and files:
   the main model's file: `sale.order.line` in `models/sale_order.py`.
 - **Controllers:** `main.py` when there is only one file; split them when
   there are several classes or functions.
-- **Static files** are named after the module (`static/src/js/<module>.js`,
-  `static/src/css/<module>.css`). Do not link images or libraries from
-  outside Odoo by URL: copy them into the repository.
+- **Static files:** the layout of `static/src/` (the folders of components and
+  services, and the names of their files) is in the `oca-web-guidelines` skill. Do not
+  link images or libraries from outside Odoo by URL: copy them into the
+  repository.
 - Folders have mode 755 and files 644.
 
 # Installation hooks
 
 - `pre_init_hook`, `post_init_hook`, `uninstall_hook` and `post_load` live in
   `hooks.py` at the root of the module. The manifest keys keep those names.
+- The arguments a hook receives depend on the version: from 17.0 it is
+  `env` (see
+  [Check the version before using an API](python.md#check-the-version-before-using-an-api)).
 - Import them in `__init__.py` as needed:
   `from .hooks import pre_init_hook, post_init_hook`.
 - Apply monkey patches in `post_load`, so that they apply only when the
