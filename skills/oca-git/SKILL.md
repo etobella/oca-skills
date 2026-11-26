@@ -86,8 +86,10 @@ The first line is `[TAG] module: summary`.
   by bots. Do not amend them. When asked to reduce the noise of a PR, squash
   the administrative commits into the commit before them.
 - Do not touch `.po` files in a PR (Weblate owns them; only a new module may
-  bring its own) or the module's `README.rst` (it is built from `readme/`:
-  edit the fragments there).
+  bring its own), and do not edit the module's `README.rst` by hand (it is
+  built from `readme/`: edit the fragments there). Do commit the `README.rst`
+  that the `oca-gen-addon-readme` pre-commit hook regenerates, for instance
+  after a migration: without it, pre-commit fails in the CI.
 
 ## Merging someone else's work
 
