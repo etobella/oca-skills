@@ -12,7 +12,7 @@ none of them depends on an Odoo skill.
 | `oca-guidelines` | done; only `versions/20.0.md` exists so far |
 | `oca-web-guidelines` | done: Will handle topics related to JS | 
 | `oca-migration` | done: Will handle migrations |
-| `oca-review` | pending: Will handle how to make a review |
+| `oca-review` | done: Will handle how to make a review |
 
 Planned for a second batch: `oca-module-docs`, `oca-new-module`, `oca-ci`.
 
