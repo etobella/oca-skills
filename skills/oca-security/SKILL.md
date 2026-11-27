@@ -46,12 +46,17 @@ These rules are complete on their own. They do not depend on any Odoo skill.
 5. Report each finding with a severity, the exact file and line, and the
    smallest fix. A fix must use only what the version has.
 
+6. For a finding that an outsider could exploit, read
+   [guidelines/reporting.md](guidelines/reporting.md) before writing a public
+   PR, issue or comment about it.
+
 The audit is complete when every pattern has been swept and every hit judged.
 
 | Sweep for | Judge against |
 | --- | --- |
 | `security/` files: `ir.model.access.csv`, record rules, groups | [Access control principles](guidelines/generic.md#access-control-principles) and [Access control in 16 to 19](guidelines/16-to-19.md#access-control-in-16-to-19) |
 | `security/ir.access.csv` | [Access control principles](guidelines/generic.md#access-control-principles) and [Access control in 20 and later](guidelines/20-and-later.md#access-control-in-20-and-later) |
+| `base.default_user`, or `groups_id` / `implied_ids` in a data file that is not `noupdate` | [Access control principles](guidelines/generic.md#access-control-principles) (groups on the default user template) |
 | a check on `vals` in `def create(` before `super().create(` | [Create overrides that check vals](guidelines/generic.md#create-overrides-that-check-vals) |
 | `sudo(`, `with_user(`, `with_company(` | [Do not over-sudo](guidelines/generic.md#do-not-over-sudo) |
 | `cr.execute`, `SQL(`, `.format`, `%` or an f-string near SQL | [Use the ORM and parameterize SQL](guidelines/generic.md#use-the-orm-and-parameterize-sql) |

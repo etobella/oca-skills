@@ -21,6 +21,12 @@ version.
 - **Multi-company and sensitive models.** A multi-company model needs a
   company restriction. A sensitive model needs a restriction by domain, not
   only a grant by group.
+- **Groups on the default user template.** Flag a module that adds a manager
+  or admin group to `base.default_user` (its `groups_id`, or the implied
+  groups of a group the template has) in a file that is not `noupdate`. Every
+  module update puts the group back on the template, so new users get it even
+  after an administrator removed it. Grant such groups to named users, or do
+  it once in a `noupdate` record or a `post_init_hook`.
 
 # Create overrides that check vals
 

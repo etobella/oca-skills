@@ -39,7 +39,7 @@ not included.
 | [Module names](guidelines/modules.md#module-names) | naming or renaming a module |
 | [Which module the code goes in](guidelines/modules.md#which-module-the-code-goes-in) | starting a feature: extend a module, add one, or add a bridge |
 | [Manifest](guidelines/modules.md#manifest) | touching `__manifest__.py` |
-| [Version numbers and migrations](guidelines/modules.md#version-numbers-and-migrations) | bumping `version`, or changing a data model or a view |
+| [Version numbers and migrations](guidelines/modules.md#version-numbers-and-migrations) | changing a data model, a view or a `noupdate` record, or writing a migration script (never to bump `version` in a normal PR) |
 | [Directories and file names](guidelines/modules.md#directories-and-file-names) | creating, moving or naming files in an addon |
 | [Installation hooks](guidelines/modules.md#installation-hooks) | `pre_init_hook`, `post_init_hook`, `uninstall_hook`, `post_load`, monkey patches |
 | [External dependencies](guidelines/modules.md#external-dependencies) | a Python or binary dependency, `requirements.txt`, `oca_dependencies.txt` |

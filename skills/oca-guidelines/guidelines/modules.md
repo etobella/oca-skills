@@ -52,6 +52,11 @@ every database that wants the capability.
 - `y` (minor): new features that keep backward compatibility. Upgrading the
   module is probably needed.
 - `z` (patch): bug fixes. Usually a server restart is enough.
+- **Do not change `version` in a fix or feature PR.** The bot bumps it when
+  the PR is merged (`/ocabot merge patch`, `minor` or `major`, which the
+  maintainer chooses). Only a migration PR sets the version (see
+  `oca-migration`). The table above says what each part means, not that the
+  contributor edits it.
 - A breaking change comes with a migration script, in
   `migrations/<version>/` (`pre-migration.py`, `post-migration.py`), so that
   existing installations can upgrade.
@@ -59,6 +64,17 @@ every database that wants the capability.
   appreciated. A note in the README about the changes that need migration
   is also enough, so that later contributors can write the script without
   analyzing every change again.
+
+## noupdate data and existing databases
+
+A change to a record of a `noupdate="1"` file or block (a mail template, a
+stage, a sequence...) does nothing on a database that already has the record:
+the module update skips it. A PR that makes such a change must say in its
+description how existing databases are affected and how to apply the change
+there: a migration script that writes the record, or a note for the
+administrator. Never ask for a reload of the whole data file, which would
+overwrite what users have customised. A new record in a `noupdate` file is
+created on update; a changed one is not.
 
 # Directories and file names
 
@@ -76,7 +92,7 @@ A module uses these directories and files:
 | `readme/` | the fragments the `README.rst` is built from |
 | `reports/` | reporting models, print report templates |
 | `security/` | groups, access rows, record rules |
-| `static/` | web assets: `src/` (its layout is in the `oca-web` skill), `img/`, `lib/` |
+| `static/` | web assets: `src/` (its layout is in the `oca-web-guidelines` skill), `img/`, `lib/` |
 | `templates/` | web templates, when there are several |
 | `tests/` | tests |
 | `views/` | views, and QWeb print report templates |

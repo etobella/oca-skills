@@ -10,6 +10,8 @@
   the file mixes updatable and non-updatable data. Otherwise use `<odoo>`
   (for `noupdate=0` or demo data, which is non-updatable by default) or
   `<odoo noupdate="1">`.
+- A change to a `noupdate` record does not reach existing databases: see
+  [noupdate data and existing databases](modules.md#noupdate-data-and-existing-databases).
 - Do not prefix the id of a record with the name of the current module:
   `<record id="view_id"...>`, not `<record id="current_module.view_id"...>`.
 

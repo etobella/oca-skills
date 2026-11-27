@@ -50,10 +50,21 @@ The first line is `[TAG] module: summary`.
 - **Tickets:** OCA has no `task-`, `opw-` or `runbot-` references: never
   write one and never invent one. Link a GitHub issue of the repository with
   `Fixes #123`.
-- **Author:** Authors must be real people, not bots, and their name and email 
-  should be correctly set in the commit metadata. Do not use generic or 
-  placeholder names and emails. AI bots must be declares as
-  Assisted-by: `bot_name`: `model used` (`percentage of AI assistance`).
+- **Author:** Authors must be real people, not bots, and their name and email
+  should be correctly set in the commit metadata. Do not use generic or
+  placeholder names and emails. Never put an AI tool in `Co-authored-by:`.
+- **AI trailer:** if any AI was involved in the commit, from advice to fully
+  autonomous coding, add an `Assisted-by:` trailer, one line per tool or
+  model and no blank line between them. It is binary: it either had AI
+  involvement or it did not, so never write a percentage or a level.
+
+  ```
+  Assisted-by: Claude Opus 4.6
+  Assisted-by: GitHub Copilot:gpt-5
+  ```
+- **Version:** do not change `version` in `__manifest__.py` in a fix or
+  feature commit. The bot bumps it at merge. Only a migration sets it (see
+  `oca-guidelines`, "Version numbers and migrations").
 
 ## Pull requests
 
@@ -70,7 +81,32 @@ The first line is `[TAG] module: summary`.
 - **Branch name:** a migration branch is `<version>-mig-<module>`, for
   example `20.0-mig-library_book`.
 - **A bug fix comes with a test** that fails without the fix.
+- **AI disclosure:** when any AI was used, say so in the description (the
+  title does not need it), with the same `Assisted-by:` lines as the commits.
+- **A security hole:** do not open a public PR whose test or text shows how
+  to exploit it before reading the reporting rules of `oca-security`.
 - **Stale:** a PR with no activity for 6 months will be closed automatically.
+
+## AI assistance and the OCA AI policy
+
+The OCA AI policy (`AI_POLICY.md` of the OCA organisation) holds for every
+contribution, and an agent working here follows it:
+
+- A human reads, understands and takes responsibility for every line, and
+  supervises the agent. Unsupervised agentic work is not permitted.
+- Do not post AI-generated review comments or summaries as they are: a
+  person verifies and owns them (see `oca-review`).
+- A patch is small: the reference point is under 30 lines in a single file.
+  More than 500 lines needs a maintainer's agreement beforehand.
+- Default red lines, any one of which triggers scrutiny and two of which
+  trigger rejection: more than 5 PRs or 10 reviews from one source in 24
+  hours; a contribution over 500 lines without prior agreement; repeated
+  iterations that regenerate code instead of answering the review. The PSC
+  may set other limits: check before a large batch.
+- **Pace yourself.** With a backlog of fixes (a queue of PRs to file), never
+  open them all at once. Open at most 5 in 24 hours counting the ones the
+  same person already opened, keep the rest queued, and wait for a response
+  before sending the next. Say what is left in the queue.
 
 ## Migration commits
 

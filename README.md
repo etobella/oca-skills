@@ -9,19 +9,25 @@ none of them depends on an Odoo skill.
 | --- | --- |
 | `oca-git` | done |
 | `oca-security` | done; derived from `odoo-security` and rewritten; rules in `generic.md`, `16-to-19.md` and `20-and-later.md` |
-| `oca-guidelines` | done; only `versions/20.0.md` exists so far |
-| `oca-web-guidelines` | done: Will handle topics related to JS | 
-| `oca-migration` | done: Will handle migrations |
-| `oca-review` | done: Will handle how to make a review |
+| `oca-guidelines` | done; versions 16.0 to 20.0 in `versions/` |
+| `oca-web-guidelines` | done; JavaScript, Owl templates and CSS |
+| `oca-migration` | done; migrating a module between 16.0 and 20.0 |
+| `oca-review` | done; drafts a review for a person to verify and post |
 
 Planned for a second batch: `oca-module-docs`, `oca-new-module`, `oca-ci`.
+`oca-ci` would run pre-commit and the module tests locally as the CI does. Two
+lessons to start from: use the Python version the CI pins, and read the
+`tests.result` line rather than the tail of the log.
 
 ## Install (Claude Code)
 
 ```bash
+scripts/install.sh --project ~/src/my-repo  # for one repository only (recommended)
 scripts/install.sh                          # for all your projects
-scripts/install.sh --project ~/src/my-repo  # for one repository only
 ```
+
+Prefer `--project` if you work on more than OCA. The global install removes and
+replaces `~/.claude/skills/<name>` for each OCA skill.
 
 Restart Claude Code or open a new session.
 

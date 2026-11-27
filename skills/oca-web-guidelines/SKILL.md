@@ -1,5 +1,5 @@
 ---
-name: oca-web
+name: oca-web-guidelines
 description: >-
   Conventions for the JavaScript, Owl templates and CSS of an OCA addon, Odoo
   16.0 to 20.0, Owl components only: where files go, hooks and reactivity of

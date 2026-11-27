@@ -39,6 +39,12 @@ Each finding has:
 - a mark: **blocking**, when the change must not be merged as it is, or
   **suggestion**.
 
+A finding that rests on a rule that its file marks as *Recommended* (the OCA
+guide does not write it down: `orm.md`, "Which module the code goes in",
+the recommended part of `oca-web-guidelines`) is always a **suggestion**,
+never **blocking**. Only a rule of the OCA guide, a security defect or a
+failure scenario blocks.
+
 A finding that rests on code outside the diff names the revision it was read
 at. Flag; fix only what is unambiguous.
 
@@ -47,4 +53,5 @@ at. Flag; fix only what is unambiguous.
 Draft the review as a Markdown comment that a person can paste in the pull
 request: the thanks, the review type, the findings, and the proposed verdict.
 End it with a **Skills read:** line that lists every section opened, so that
-the person can see what was checked. Do not publish it, and do not merge.
+the person can see what was checked. Do not publish it, and do not merge: under the OCA AI policy the person who
+posts it must have verified every point first.

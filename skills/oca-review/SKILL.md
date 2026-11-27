@@ -49,7 +49,9 @@ from memory.
    without rules.
 4. **Read.** Open every mapped section, and the file of the version of each
    skill, before you write the first finding.
-5. **Rules pass.** Judge the diff against the sections read.
+5. **Rules pass.** Judge the diff against the sections read. A rule marked
+   *Recommended* gives a suggestion, never a blocking finding (see
+   [A finding](guidelines/report.md#a-finding)).
 6. **Merits pass.** Ask the questions of
    [Questions of the OCA review](guidelines/merits.md#questions-of-the-oca-review),
    hunt for the input that breaks each hunk, and look for the code the diff
