@@ -10,8 +10,8 @@ none of them depends on an Odoo skill.
 | `oca-git` | done |
 | `oca-security` | done; derived from `odoo-security` and rewritten; rules in `generic.md`, `16-to-19.md` and `20-and-later.md` |
 | `oca-guidelines` | done; only `versions/20.0.md` exists so far |
-| `oca-web-guidelines` | pending: Will handle topics related to JS | 
-| `oca-migration` | pending: Will handle migrations |
+| `oca-web-guidelines` | done: Will handle topics related to JS | 
+| `oca-migration` | done: Will handle migrations |
 | `oca-review` | pending: Will handle how to make a review |
 
 Planned for a second batch: `oca-module-docs`, `oca-new-module`, `oca-ci`.
